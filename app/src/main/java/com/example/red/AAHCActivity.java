@@ -85,24 +85,24 @@ public class AAHCActivity extends AppCompatActivity implements View.OnClickListe
                 tiempo.setText("Duración: " + String.valueOf(tiempoFin - tiempoInicio) + " milisegundos");
             }
 
-            //Hay que poner los dos onFailure por si el servidor web decide devolverme el failure en array de Bytes o
+            //Se pueden poner los dos onFailure por si el servidor web decide devolverme el failure en array de Bytes o
             //en string.
 
 
-            @Override
+            /*@Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBytes, Throwable throwable) {
                 tiempoFin = System.currentTimeMillis();
                 progreso.dismiss();
                 web.loadDataWithBaseURL(null, "Error: " + responseBytes.toString() + " ","text/html", "UTF-8", null);
                 tiempo.setText("Duración: " + String.valueOf(tiempoFin - tiempoInicio) + " milisegundos");
-            }
+            }*/
 
             @Override
             public void onFailure(int statusCode, Header[] headers, String response, Throwable t) {
                 // called when response HTTP status is "4XX" (eg. 401, 403, 404)
                 tiempoFin = System.currentTimeMillis();
                 progreso.dismiss();
-                web.loadDataWithBaseURL(null, "Error: " + response + " ","text/html", "UTF-8", null);
+                web.loadDataWithBaseURL(null, "Error: " + response + " " + t.getMessage(),"text/html", "UTF-8", null);
                 tiempo.setText("Duración: " + String.valueOf(tiempoFin - tiempoInicio) + " milisegundos");
             }
         });

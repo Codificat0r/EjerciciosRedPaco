@@ -12,8 +12,8 @@ import com.loopj.android.http.RequestParams;
 
 public class RestClient {
     private static final String BASE_URL = "";
-    private static final int MAX_TIMEOUT = 10000;
-    private static final int RETRIES = 3;
+    private static final int MAX_TIMEOUT = 2000;
+    private static final int RETRIES = 1;
     private static final int TIMEOUT_BETWEEN_RETRIES = 5000;
     private static AsyncHttpClient client = new AsyncHttpClient(true, 80, 443);
 
