@@ -39,6 +39,8 @@ public class VolleyActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_volley);
 
+        mRequestQueue = MySingleton.getInstance(this.getApplicationContext()).getRequestQueue();
+
         edtUrl = (EditText) findViewById(R.id.edtUrl);
         btnConectar = (Button) findViewById(R.id.btnConectar);
         btnConectar.setOnClickListener(this);
@@ -61,7 +63,7 @@ public class VolleyActivity extends AppCompatActivity implements View.OnClickLis
     public void makeRequest(String url) {
         final String enlace = url;
         // Instantiate the RequestQueue.
-        mRequestQueue = Volley.newRequestQueue(this);
+        //mRequestQueue = Volley.newRequestQueue(this);
 
         final ProgressDialog progreso = new ProgressDialog(VolleyActivity.this);
         //called before request is started

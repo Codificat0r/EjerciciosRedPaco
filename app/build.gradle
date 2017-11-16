@@ -1,7 +1,9 @@
 apply plugin: 'com.android.application'
 
 android {
+
     compileSdkVersion 26
+    useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "com.example.red"
         minSdkVersion 18
@@ -32,4 +34,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     compile 'com.loopj.android:android-async-http:1.4.9'
     compile 'com.android.volley:volley:1.0.0'
+    compile 'com.squareup.okhttp3:okhttp:3.9.0'
 }
