@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="http://i.imgur.com/DvpvklR.png" />
+        android:text="https://www.himgs.com/imagenes/hola/comunes/svg/holacom-pos-16.svg" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,7 +30,7 @@
             android:id="@+id/btnDescargarImagen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Descargar imagen" />
+            android:text="Descargar fichero" />
 
     </LinearLayout>
 
