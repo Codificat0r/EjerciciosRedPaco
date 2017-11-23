@@ -75,9 +75,9 @@ public class DescargaImagenesActivity extends AppCompatActivity implements View.
         final AsyncHttpClient cliente = new AsyncHttpClient();
         final ProgressDialog progreso = new ProgressDialog(this);
         final String[] splittedUrl = edtUrl.getText().toString().split("/");
-        //File file = new File(Environment.getExternalStorageDirectory(), splittedUrl[splittedUrl.length - 1]);
-        File myfile = new File(Environment.getExternalStorageDirectory(), "prueba.txt");
-        cliente.get( edtUrl.getText().toString(), new FileAsyncHttpResponseHandler(this) {
+        File myfile = new File(Environment.getExternalStorageDirectory(), splittedUrl[splittedUrl.length - 1]);
+        //File myfile = new File(Environment.getExternalStorageDirectory(), "prueba.txt");
+        cliente.get(edtUrl.getText().toString(), new FileAsyncHttpResponseHandler(myfile) {
             @Override
             public void onStart() {
                 progreso.setProgressStyle(ProgressDialog.STYLE_SPINNER);
