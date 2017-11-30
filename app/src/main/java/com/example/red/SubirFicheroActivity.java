@@ -23,6 +23,7 @@ public class SubirFicheroActivity extends AppCompatActivity {
     private Button btnSubir;
     private TextView txvInfo;
     private EditText edtArchivo;
+    private EditText edtContrasena;
     public final static String WEB = "http://192.168.0.227/acceso/upload.php";
 
     @Override
@@ -39,6 +40,7 @@ public class SubirFicheroActivity extends AppCompatActivity {
         });
         txvInfo = (TextView) findViewById(R.id.txvInfo);
         edtArchivo = (EditText) findViewById(R.id.edtArchivo);
+        edtContrasena = (EditText) findViewById(R.id.edtContrasena);
     }
 
     private void subida() {
@@ -51,6 +53,7 @@ public class SubirFicheroActivity extends AppCompatActivity {
         RequestParams params = new RequestParams();
         try {
             params.put("fileToUpload", myFile);
+            params.put("contrasena", edtContrasena.getText().toString());
         } catch (FileNotFoundException e) {
             existe = false;
             txvInfo.setText("Error en el fichero: " + e.getMessage());
@@ -75,7 +78,9 @@ public class SubirFicheroActivity extends AppCompatActivity {
                 public void onSuccess(int statusCode, Header[] headers, String response) {
                     // called when response HTTP status is "200 OK"
                     progreso.dismiss();
-                    txvInfo.setText("Fichero subido con éxito");
+                    //Si el PHP manda un error, es un simple eco, pero se ha conseguido comunicar con el servidor
+                    //por lo que será codigo 200, y se ejecutará el onSuccess.
+                    txvInfo.setText("Server: " + response);
                 }
                 @Override
                 public void onFailure(int statusCode, Header[] headers, String response, Throwable t) {

@@ -17,6 +17,15 @@
         android:inputType="textPersonName"
         android:text="alarmas.txt" />
 
+    <EditText
+        android:id="@+id/edtContrasena"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:text="hola" />
+
     <Button
         android:id="@+id/btnSubir"
         android:layout_width="wrap_content"
